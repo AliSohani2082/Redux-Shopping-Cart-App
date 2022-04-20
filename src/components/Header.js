@@ -1,7 +1,10 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth-slice"
 import Cart from "./Cart";
 import "./Header.css";
 const Header = () => {
+  const dispatch = useDispatch()
   return (
     <header>
       <nav className="header-nav">
@@ -17,6 +20,10 @@ const Header = () => {
           <li>
             <Cart />
           </li>
+          <li>
+            <button className="logout-btn" onClick={() => dispatch(authActions.logout())}>Logout</button>
+          </li>
+
         </ul>
       </nav>
     </header>
